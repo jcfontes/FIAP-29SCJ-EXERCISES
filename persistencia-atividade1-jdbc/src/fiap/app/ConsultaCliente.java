@@ -1,7 +1,7 @@
 package fiap.app;
 
-import fiap.dao.ClienteDAO;
-import fiap.dao.PedidoDAO;
+import fiap.dao.impl.mysql.MySQLClienteDAO;
+import fiap.dao.impl.mysql.MySQLPedidoDAO;
 import fiap.entity.Cliente;
 import fiap.entity.Pedido;
 
@@ -13,8 +13,8 @@ public class ConsultaCliente {
 
 			System.out.println("Consultando Cliente ...");
 
-			ClienteDAO clienteDAO = new ClienteDAO();
-			PedidoDAO pedidoDAO = new PedidoDAO();
+			MySQLClienteDAO clienteDAO = new MySQLClienteDAO();
+			MySQLPedidoDAO pedidoDAO = new MySQLPedidoDAO();
 
 			Cliente cliente = clienteDAO.buscarCliente(1);
 

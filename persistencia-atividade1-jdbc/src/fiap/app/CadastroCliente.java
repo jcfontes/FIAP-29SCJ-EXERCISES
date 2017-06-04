@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import fiap.dao.ClienteDAO;
-import fiap.dao.PedidoDAO;
+import fiap.dao.impl.mysql.MySQLClienteDAO;
+import fiap.dao.impl.mysql.MySQLPedidoDAO;
 import fiap.entity.Cliente;
 import fiap.entity.Pedido;
 
@@ -16,8 +16,8 @@ public class CadastroCliente {
 		try {
 
 			System.out.println("Cadastrando Cliente...");
-			ClienteDAO clienteDAO = new ClienteDAO();
-			PedidoDAO pedidoDAO = new PedidoDAO();
+			MySQLClienteDAO clienteDAO = new MySQLClienteDAO();
+			MySQLPedidoDAO pedidoDAO = new MySQLPedidoDAO();
 
 			List<Pedido> pedidos = new ArrayList<>();
 

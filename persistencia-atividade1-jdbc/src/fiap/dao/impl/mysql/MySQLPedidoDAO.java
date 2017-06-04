@@ -1,14 +1,15 @@
-package fiap.dao;
+package fiap.dao.impl.mysql;
 
+import java.sql.Connection;
 import java.sql.Date;
-import java.sql.SQLException;
 
+import fiap.dao.impl.MySQLFactoryDAO;
 import fiap.entity.Pedido;
 
-public class PedidoDAO extends DAO {
+public class MySQLPedidoDAO extends MySQLFactoryDAO {
 
-	public Pedido incluirPedido(Pedido pedido) throws SQLException {
-		abrirConexao();
+	public Pedido incluirPedido(Pedido pedido) throws Exception {
+		Connection con = MySQLFactoryDAO.criarConexao();
 
 		String sql = "INSERT INTO PEDIDO(ID_CLIENTE, DATA, DESCRICAO, VALOR) VALUES(?,?,?,?)";
 		ps = con.prepareStatement(sql);
@@ -31,10 +32,10 @@ public class PedidoDAO extends DAO {
 		return pedido;
 	}
 
-	public Pedido buscarPedido(int id) throws SQLException {
+	public Pedido buscarPedido(int id) throws Exception {
 		Pedido pedido = null;
 
-		abrirConexao();
+		Connection con = MySQLFactoryDAO.criarConexao();
 
 		String sql = "SELECT ID, ID_CLIENTE, DATA, DESCRICAO, VALOR FROM PEDIDO WHERE ID = ?";
 		ps = con.prepareStatement(sql);
