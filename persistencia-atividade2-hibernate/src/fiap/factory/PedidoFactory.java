@@ -21,6 +21,7 @@ public class PedidoFactory {
 
 		pedidos.add(pedido);
 
+		pedido = new Pedido();
 		pedido.setCliente(cliente);
 		pedido.setDescricao("Camera");
 		pedido.setValor(2000.00);
